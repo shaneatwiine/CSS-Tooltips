@@ -1,13 +1,48 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Tooltips</title>
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-  <div class="avatar" data-tooltip="Thinking Cat"></div>
+<html>
+<style>
+.custom-tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.custom-tooltip .custom-tooltip-text {
+  visibility: hidden;
+  width: max-content;
+  background-color: #181C32;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 20px;
+  position: absolute;
+  z-index: 1;
+  top: -5px;
+  left: 110%;
+}
+
+.custom-tooltip .custom-tooltip-text::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 100%;
+  margin-top: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent #181C32 transparent transparent;
+}
+.custom-tooltip:hover .custom-tooltip-text {
+  visibility: visible;
+}
+</style>
+<body style="text-align:center;">
+
+<h2>Right custom-tooltip w/ Left Arrow</h2>
+
+<div class="custom-tooltip">Hover over me
+  <span class="custom-tooltip-text">Legacy Group</span>
+</div>
+
 </body>
 </html>
+
+
